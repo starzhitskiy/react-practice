@@ -1,0 +1,13 @@
+.title {
+  margin: 0;
+  color: rgb(75, 7, 7);
+  &__search {
+    margin: 20px;
+  }
+  &__button {
+    padding: 5px;
+    background-color: salmon;
+    border-radius: 20px;
+    border-color: #900;
+  }
+}

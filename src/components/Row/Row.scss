@@ -1,0 +1,11 @@
+.row {
+  & td {
+    padding: 10px 20px;
+    border: 1px solid rgb(58, 104, 5);
+    text-align: center;
+  }
+}
+
+.active {
+  background-color: rgb(58, 104, 5);
+}
