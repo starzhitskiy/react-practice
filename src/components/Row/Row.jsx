@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import Users from '../../users.json';
 import './Row.scss';
 
 const NewRow = ({ user }) => {
@@ -25,10 +24,9 @@ const NewRow = ({ user }) => {
   );
 };
 
-export function Row({ query }) {
-  const [users] = useState(Users);
+export function Row({ query, todos }) {
   const lowerQuery = query.toLowerCase();
-  const filteredUsers = users.filter((user) => user.name.toLowerCase().includes(lowerQuery));
+  const filteredUsers = todos.filter((user) => user.name.toLowerCase().includes(lowerQuery));
 
   return (
     <tbody>
