@@ -48,4 +48,16 @@
       height: 30px;
     }
   }
+  &__wrap {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
+  &__button {
+    margin-top: 15px;
+  }
 }

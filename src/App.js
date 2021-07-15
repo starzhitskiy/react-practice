@@ -5,16 +5,17 @@ import { Table } from './components/Table';
 
 import './App.scss';
 import { ModalIcon } from './components/ModalIcon/ModalIcon';
-import todosFromServer from './users.json';
-// import { check } from 'prettier';
+import { useTableApi } from './hooks/useTableApi';
 
 export function App() {
   const [searchQery, setSearchQery] = useState('');
-  const [todos, setTodos] = useState(todosFromServer);
+  // const [todos] = useState([]);
   const onSearchHendler = (cuery) => setSearchQery(cuery);
   const [modal, setModal] = useState({ modal: false });
 
-  const addTodo = (name, description, done) => {
+  const [todos, api] = useTableApi('http://localhost:3004/products');
+
+  const addTodo = ({ name, description, done }) => {
     const newAddTodo = {
       id: Date.now(),
       name,
@@ -22,7 +23,7 @@ export function App() {
       done,
       time: Date.now(),
     };
-    setTodos([...todos, newAddTodo]);
+    api.setData([...todos, newAddTodo]);
   };
 
   return (

@@ -25,7 +25,6 @@ const NewRow = ({ user }) => {
 };
 
 export function Row({ query, todos }) {
-  // const [users] = useState(Users);
   const lowerQuery = query.toLowerCase();
   const filteredUsers = todos.filter((user) => user.name.toLowerCase().includes(lowerQuery));
 
