@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 
 import { Search } from './components/Search';
-// eslint-disable-next-line import/order
 import { Table } from './components/Table';
-
 import './App.scss';
 import { ModalIcon } from './components/ModalIcon/ModalIcon';
 import { useTableApi } from './hooks/useTableApi';
@@ -11,7 +9,7 @@ import { useTableApi } from './hooks/useTableApi';
 export function App() {
   const [searchQery, setSearchQery] = useState('');
   const onSearchHendler = (cuery) => setSearchQery(cuery);
-  const [modal, setModal] = useState({ modal: false });
+  const [modal, setModal] = useState(false);
 
   const [todos, api] = useTableApi('http://localhost:3004/products');
 

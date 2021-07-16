@@ -1,15 +1,12 @@
 import React from 'react';
-import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
 
-import { BaseInput } from './BaseInput';
-
+import { Forma } from '../Forma';
 import './ModalIcon.scss';
 // eslint-disable-next-line
 export const ModalIcon = (props) => {
-  const addTodo = (value) => {
-    props.addTodo({ ...value });
-  };
+  // const addTodo = (value) => {
+  //   props.addTodo({ ...value });
+  // };
 
   return (
     <>
@@ -20,46 +17,14 @@ export const ModalIcon = (props) => {
           </div>
           <h2>{props.title}</h2>
           <hr />
-          <Formik
-            validationSchema={Yup.object().shape({
-              name: Yup.string()
-                .min(2, 'Too Short!')
-                .max(20, 'Too Long!')
-                .required('Required')
-                .matches(/^[a-zA-Z0-9А-Яа-я ]+$/),
-              description: Yup.string()
-                .min(2, 'Too Short!')
-                .max(40, 'Too Long!')
-                .required('Required'),
-            })}
-            initialValues={{ name: '', description: '', done: false }}
-            onSubmit={addTodo}
+          <Forma />
+          <button
+            className="title__button modal__button"
+            type="submit"
+            onClick={props.onModalClose}
           >
-            {(formik) => {
-              console.log(formik);
-              return (
-                <Form className="modal__wrap">
-                  <BaseInput label="Name" name="name" placeholder="Add Name" />
-                  <BaseInput label="Description" name="description" placeholder="Add Description" />
-                  <BaseInput
-                    name="done"
-                    type="checkbox"
-                    onChange={() => {
-                      formik.setFieldError('test', 'Test Field was changed');
-                    }}
-                  />
-
-                  <button
-                    className="title__button modal__button"
-                    type="submit"
-                    onClick={props.onModalClose}
-                  >
-                    Add new information
-                  </button>
-                </Form>
-              );
-            }}
-          </Formik>
+            Add new information
+          </button>
         </div>
       </div>
     </>
